@@ -1,4 +1,4 @@
-Feature: DataGardener User login
+Feature: Dg User login
 
     Scenario: Datagardener User login with valid credentials
         Given User is on DataGardener website
