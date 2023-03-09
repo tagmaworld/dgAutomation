@@ -1,6 +1,5 @@
 Feature: Company search on DG portal
-
-
+    @companySearch @regression
     Scenario: User search for a company in Data Gardener
         Given User is on DataGardener website
         When User select login link

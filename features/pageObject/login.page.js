@@ -24,11 +24,12 @@ class LoginPage {
     //Functions to interact with those UI elements 
 
     async clickLoginLink(){
+        await (await this.loginLink).isDisplayed();
         await this.loginLink.click();
-        await browser.pause(5000);
+       
     }
     async LoginToDG(username, password){
-    
+        await (await this.username).isDisplayed()
         await this.username.setValue(username);
         await this.password.setValue(password);
 

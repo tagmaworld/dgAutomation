@@ -1,6 +1,6 @@
 Feature: DataGardener User checking pdfReports
 
-    @pdfReports
+    @pdfReports @regression
     Scenario: DG User selecting pdfReports
         Given User is on DataGardener website
         When User select login link

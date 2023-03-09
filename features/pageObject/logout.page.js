@@ -13,14 +13,15 @@ class LogoutPage {
     }
 
     async clickLogoutLink(){
+        await (await this.logoutLink).waitForDisplayed();
         await this.logoutLink.click();
-        await browser.pause(5000);
+      
     }
 
     async clickYesButton(){
+        await (await this.yesButton).waitForDisplayed();
         await this.yesButton.click();
     }
-
 }
 
 export default new LogoutPage();

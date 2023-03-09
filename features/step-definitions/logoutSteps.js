@@ -8,7 +8,6 @@ When('user select logout link', async function() {
 })
 When('user select yes from promptScreen', async function(){
     await logoutPage.clickYesButton();
-    await browser.pause(3000)
 
 })
 Then('user should see loginPage', async function (){

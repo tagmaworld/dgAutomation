@@ -16,6 +16,7 @@ class DashboardPage {
     }
 
     async searchForACompany(companyName){
+        await (await this.searchInputArea).waitForDisplayed();
         await this.searchInputArea.setValue(companyName);
         await this.searchButton.click();
     }

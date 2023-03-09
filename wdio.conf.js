@@ -1,3 +1,13 @@
+let baseUrl;
+let env = process.env.ENV; //dev
+
+let dgApplicationUrls = {
+    dev: 'https://dev.datagardener.com/',
+    preprod: 'https://preprod.datagardener.com/'
+}
+
+baseUrl = dgApplicationUrls[env]; 
+
 export const config = {
     //
     // ====================
@@ -96,10 +106,10 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://preprod.datagardener.com/',
+    baseUrl: baseUrl, //https://dev.datagardener.com/
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 60000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -136,10 +146,15 @@ export const config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec',['allure', {outputDir: 'allure-results', disableWebdriverStepsReporting: true,}]],
 
+
+    beforeScenario: async function () {
+        await browser.reloadSession()
+    },
+
     afterStep: async function (step, scenario, { error, duration, passed }, context) {
-        //if (!error) {
+        if (error) {
           await browser.takeScreenshot();
-        //}
+        }
       },
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
@@ -161,7 +176,7 @@ export const config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        tagExpression: '@login',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.

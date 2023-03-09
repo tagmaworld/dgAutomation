@@ -1,6 +1,6 @@
 Feature: director search on DG portal
 
-    @companySearch
+    @companySearch @regression
     Scenario: User search for a director in DG
         Given User is on DataGardener website
         When User select login link
