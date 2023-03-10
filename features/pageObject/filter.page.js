@@ -7,7 +7,7 @@ class filterPage {
 
 
     get filterOptions() {
-        return $('=Filter Options');
+        return $('.filterPropsContainer');
     }
 
 
