@@ -9,6 +9,11 @@ Feature: Dg User login
     Scenario: Dg User login with valid credentials
         Then User should see the dashboard page
 
+    Scenario: DG User selecting pdfReports
+        When user select pdfReports link
+        Then user should see pdfReportsPage
+
+
     Scenario: DG User logout from DG portal
         When user select logout link
         And user select yes from promptScreen
