@@ -1,6 +1,6 @@
 import { Given, Then, When } from "@wdio/cucumber-framework";
 import dashboardPage from "../pageObject/dashboard.page.js";
-import filterPage from "../pageObject/filtersearch.page";
+import filterPage from "../pageObject/filtersearch.page.js";
 
 When('user see explore button',async function() {
     await expect(filterPage.exploreButton).toBeExisting();
